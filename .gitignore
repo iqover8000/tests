@@ -1,1 +1,3 @@
 nginx/conf.d/*.conf
+.env
+.terraform*
