@@ -1,0 +1,20 @@
+---
+
+services:
+  app1:
+    image: "traefik/whoami:latest"
+    hostname: "app1"
+
+  app2:
+    image: "traefik/whoami:latest"
+    hostname: "app2"
+
+  nginx:
+    image: "nginx:latest"
+    depends_on:
+      - "app1"
+      - "app2"
+    ports:
+      - "8080:80"
+    volumes:
+      - "./conf.d:/etc/nginx/conf.d"
